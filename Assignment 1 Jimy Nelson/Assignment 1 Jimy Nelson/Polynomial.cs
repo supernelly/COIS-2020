@@ -15,6 +15,7 @@ namespace Assignment_1_Jimy_Nelson
         {
             Coefficient = coefficient;
             Exponent = exponent;
+
         }
         public double coeff
         {
@@ -32,11 +33,21 @@ namespace Assignment_1_Jimy_Nelson
         }
         // Evaluates the current term for a given x
         public double Evaluate(double x)
-        { … }
+        {
+            double coeff,answer;
+            byte expo;
+            coeff = Coefficient;
+            expo = Exponent;
+            answer = coeff * Math.Pow(x, coeff);
+
+            return answer;
+        }
         // Returns -1, 0, or 1 if the exponent of the current term
         // is less than, equal to, or greater than the exponent of obj.
         public int CompareTo(Object obj)
-        { … }
+        {
+            return 0;
+        }
         // Read and write properties for each data member
     }
 
@@ -45,7 +56,7 @@ namespace Assignment_1_Jimy_Nelson
         private T item;
         private Node<T> next;
         public Node(T item, Node<T> next)
-        { … }
+        { }
         // Read and write properties for each data member
     }
 

@@ -12,7 +12,24 @@ namespace Assignment_1_Jimy_Nelson
         private byte Exponent;
         // Creates a term with the given coefficient and exponent
         public Term(double coefficient, byte exponent)
-        { … }
+        {
+            Coefficient = coefficient;
+            Exponent = exponent;
+        }
+        public double coeff
+        {
+            set
+            { Coefficient = value; }
+            get
+            { return Coefficient; }
+        }
+        public Byte expo
+        {
+            set
+            { Exponent = value; }
+            get
+            { return Exponent; }
+        }
         // Evaluates the current term for a given x
         public double Evaluate(double x)
         { … }

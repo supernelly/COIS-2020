@@ -56,7 +56,9 @@ namespace Assignment_1_Jimy_Nelson
         private T item;
         private Node<T> next;
         public Node(T item, Node<T> next)
-        { }
+        {
+        }
+        
         // Read and write properties for each data member
     }
 

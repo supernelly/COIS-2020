@@ -10,47 +10,61 @@ namespace Assignment_1_Jimy_Nelson
     {
         private double Coefficient;
         private byte Exponent;
+
         // Creates a term with the given coefficient and exponent
         public Term(double coefficient, byte exponent)
         {
             Coefficient = coefficient;
             Exponent = exponent;
-
         }
-        public double coeff
+
+        // Evaluates the current term for a given x
+        public double Evaluate(double x)
+        {
+            double answer;
+            answer = Coefficient * Math.Pow(x, Exponent);
+
+            return answer;
+        }
+
+        // Returns -1, 0, or 1 if the exponent of the current term
+        // is less than, equal to, or greater than the exponent of obj.
+        public int CompareTo(Object obj)
+        {
+            // Needs to check for null???
+
+            Term t = obj as Term;
+            if (Exponent < t.Expo)
+                return -1;
+
+            else if (Exponent == t.Expo)
+                return 0;
+
+            else
+                return 1;
+        }
+
+        // Read and write properties for each data member
+        public double Coeff
         {
             set
             { Coefficient = value; }
             get
             { return Coefficient; }
         }
-        public Byte expo
+
+        public Byte Expo
         {
             set
             { Exponent = value; }
             get
             { return Exponent; }
         }
-        // Evaluates the current term for a given x
-        public double Evaluate(double x)
-        {
-            double coeff,answer;
-            byte expo;
-            coeff = Coefficient;
-            expo = Exponent;
-            answer = coeff * Math.Pow(x, coeff);
-
-            return answer;
-        }
-        // Returns -1, 0, or 1 if the exponent of the current term
-        // is less than, equal to, or greater than the exponent of obj.
-        public int CompareTo(Object obj)
-        {
-            return 0;
-        }
-        // Read and write properties for each data member
     }
 
+
+
+    /*  
     public class Node<T>
     {
         private T item;
@@ -111,4 +125,6 @@ namespace Assignment_1_Jimy_Nelson
         public void Print()
         { … }
     }
+
+    */
 }

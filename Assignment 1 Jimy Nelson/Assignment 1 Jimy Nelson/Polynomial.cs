@@ -88,7 +88,7 @@ namespace Assignment_1_Jimy_Nelson
         public Polynomial()
         { }
         // Inserts the given term t into the current polynomial in its proper order
-        public Polynomial AddTerm(Term t)
+        public void AddTerm (Term t)
         { … }
         // Adds the given polynomials p and q to yield a new polynomial
         public static Polynomial operator +(Polynomial p, Polynomial q)
@@ -115,7 +115,7 @@ namespace Assignment_1_Jimy_Nelson
         // Retrieves the polynomial stored at position i-1 in the list
         public Polynomial Retrieve(int i)
         { … }
-        // Inserts polynomial p into the list of polynomials
+        // Inserts polynomial p into the list of polynomials ordered by degree
         public void Insert(Polynomial p)
         { … }
         // Deletes the polynomial at index i-1

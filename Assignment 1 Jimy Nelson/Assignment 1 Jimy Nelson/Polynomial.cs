@@ -71,7 +71,7 @@ namespace Assignment_1_Jimy_Nelson
 
 
 
-    /*  
+      
     public class Node<T>
     {
         private T Item { get; set; }
@@ -88,7 +88,7 @@ namespace Assignment_1_Jimy_Nelson
         
         // Read and write properties for each data member
     }
-
+    /*
     interface IDegree
     {
         bool Order(Object obj);

@@ -17,20 +17,6 @@ namespace Assignment_1_Jimy_Nelson
             Exponent = exponent;
 
         }
-        public double coeff
-        {
-            set
-            { Coefficient = value; }
-            get
-            { return Coefficient; }
-        }
-        public Byte expo
-        {
-            set
-            { Exponent = value; }
-            get
-            { return Exponent; }
-        }
         // Evaluates the current term for a given x
         public double Evaluate(double x)
         {
@@ -40,23 +26,29 @@ namespace Assignment_1_Jimy_Nelson
             expo = Exponent;
             answer = coeff * Math.Pow(x, coeff);
 
-            return answer;
+            return  answer;
         }
         // Returns -1, 0, or 1 if the exponent of the current term
         // is less than, equal to, or greater than the exponent of obj.
         public int CompareTo(Object obj)
         {
-            return 0;
+            
         }
         // Read and write properties for each data member
     }
 
     public class Node<T>
     {
-        private T item;
-        private Node<T> next;
+        private T Item { get; set; }
+        private Node<T> Next { get; set; }
+        public Node()
+        {
+            Next = null;
+        }
         public Node(T item, Node<T> next)
         {
+            item = Item;
+            next = Next;
         }
         
         // Read and write properties for each data member
@@ -69,7 +61,7 @@ namespace Assignment_1_Jimy_Nelson
     public class Polynomial : IDegree
     {
         // A reference to the first node of a singly-linked list
-        private Node<Term> front;
+        private Node<Term> Front;
         // Creates the polynomial 0
         public Polynomial()
         { }

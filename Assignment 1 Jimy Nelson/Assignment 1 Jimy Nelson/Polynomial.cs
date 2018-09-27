@@ -26,30 +26,13 @@ namespace Assignment_1_Jimy_Nelson
 
             return answer;
         }
-<<<<<<< HEAD
         // Evaluates the current term for a given x
-        public double Evaluate(double x)
-        {
-            double coeff,answer;
-            byte expo;
-            coeff = Coefficient;
-            expo = Exponent;
-            answer = coeff * Math.Pow(x, coeff);
-
-            return  answer;
-        }
-=======
-
->>>>>>> 8b8ea600cb069f787e667569d002c0cd474b0f44
         // Returns -1, 0, or 1 if the exponent of the current term
         // is less than, equal to, or greater than the exponent of obj.
         public int CompareTo(Object obj)
         {
-<<<<<<< HEAD
-            
-        }
-        // Read and write properties for each data member
-=======
+
+
             // Needs to check for null???
 
             Term t = obj as Term;
@@ -62,6 +45,11 @@ namespace Assignment_1_Jimy_Nelson
             else
                 return 1;
         }
+        // Read and write properties for each data member
+
+        // Needs to check for null???
+
+
 
         // Read and write properties for each data member
         public double Coeff
@@ -79,7 +67,6 @@ namespace Assignment_1_Jimy_Nelson
             get
             { return Exponent; }
         }
->>>>>>> 8b8ea600cb069f787e667569d002c0cd474b0f44
     }
 
 

@@ -31,15 +31,16 @@ namespace Assignment_1_Jimy_Nelson
         // is less than, equal to, or greater than the exponent of obj.
         public int CompareTo(Object obj)
         {
-            // Needs to check for null???
+            if (obj == null)
+                return 1;
 
             Term t = obj as Term;
-            if (Exponent < t.Expo)
+            if (t == null)
+                return 1;
+            else if (Exponent < t.Expo)
                 return -1;
-
             else if (Exponent == t.Expo)
                 return 0;
-
             else
                 return 1;
         }
@@ -60,13 +61,18 @@ namespace Assignment_1_Jimy_Nelson
             get
             { return Exponent; }
         }
+
+        public override string ToString()
+        {
+            return Coefficient.ToString() + "x^" + Exponent.ToString();
+        }
     }
 
     public class Node<T>
     {
         // Read and write properties for each data member
-        private T Item { get; set; }
-        private Node<T> Next { get; set; }
+        public T Item { get; set; }
+        public Node<T> Next { get; set; }
         public Node()
         {
             Next = null;
@@ -82,31 +88,29 @@ namespace Assignment_1_Jimy_Nelson
     {
         bool Order(Object obj);
     }
-    public class Polynomial : IDegree
+    public class Polynomial<T> : IDegree where T : IComparable
     {
         // A reference to the first node of a singly-linked list
-        private Node<Term> Front;
+        private Node<T> Front;
         private int count;  // Keeps track of number of terms
         // Creates the polynomial 0
         public Polynomial()
-        { }
-        // Inserts the given term t into the current polynomial in its proper order
-        public void AddTerm (Term t)
+        { Front = new Node<T>(); }
+        // Inserts the given term "term" into the current polynomial in its proper order
+        public void AddTerm (T term)
         {
-            Node<Term> current = Front;
-            if (count > 0)
+            Node<T> previous = Front;
+            Node<T> current = Front.Next;
+            while (current != null && term.CompareTo(current.Item) < 0)
             {
-                
+                previous = current;
+                current = current.Next;
             }
-            else
-            {
-                current = new Node<Term>(t, current.Next);
-            }
-            current = new Node<Term>(t);
-            count++;
-            //t.Expo
 
+            previous.Next = new Node<T>(term, previous.Next);
+            count++;
         }
+        /*
         // Adds the given polynomials p and q to yield a new polynomial
         public static Polynomial operator +(Polynomial p, Polynomial q)
         { … }
@@ -116,13 +120,27 @@ namespace Assignment_1_Jimy_Nelson
         // Evaluates the current polynomial for a given x
         public double Evaluate(double x)
         { … }
+        */
         // Prints the current polynomial
         public void Print()
-        { … }
+        {
+            Node<T> temp = Front.Next;
+            while (temp != null)
+            {
+                Console.Write(temp.Item);
+                temp = temp.Next;
+                if (temp != null)
+                    Console.Write(" + ");
+            }
+        }
+        
         public bool Order(Object obj)
-        { … }
+        {
+            //not done yet lol
+            return true;
+        }     
     }
-
+    /*
     public class Polynomials
     {
         private List<Polynomial> P;
@@ -142,4 +160,5 @@ namespace Assignment_1_Jimy_Nelson
         public void Print()
         { … }
     }
+    */
 }

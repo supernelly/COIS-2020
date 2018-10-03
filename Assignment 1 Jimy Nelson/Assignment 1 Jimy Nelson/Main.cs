@@ -10,45 +10,59 @@ namespace Assignment_1_Jimy_Nelson
     {
         public static void Main()
         {
-            double Base;
+            /*
+            double coefficient;
             byte exponent;
             do
             {
                 try
                 {
-                    Console.WriteLine("Please enter the real cofficent");
-                    Base = Convert.ToDouble(Console.ReadLine());
+                    Console.WriteLine("Please enter a real coefficient");
+                    coefficient = Convert.ToDouble(Console.ReadLine());
                 }
                 catch (Exception)
                 {
-                    Base = -1;
+                    coefficient = -1;
                 }
-            } while (Base <= -1);
-            Console.WriteLine(Base);
+            } while (coefficient <= -1);
+            Console.WriteLine(coefficient);
             do
             {
                 try
                 {
-                    Console.WriteLine("Please enter the postive coeficent");
+                    Console.WriteLine("Please enter a postive exponent");
                     exponent = Convert.ToByte(Console.ReadLine());
                     break;
                 }
-                catch(Exception)
-                {
-                      
-                }
+                catch (ArgumentException e)
+                { Console.WriteLine(e.Message); }
             } while (true);
-            Term t1 = new Term(Base, exponent);
+            Term t1 = new Term(coefficient, exponent);
             try
             {
                 Console.WriteLine(t1.Evaluate(5));
             }
-            catch(Exception)
+            catch (ArgumentException e)
+            { Console.WriteLine(e.Message); }
+            */
+
+            try
             {
+                //  For testing class while developing code pls dont delete until finished assignment
+                Polynomial<Term> p1 = new Polynomial<Term>();
+                p1.AddTerm(new Term(4, 7));
+                p1.AddTerm(new Term(4, 4));
+                p1.AddTerm(new Term(4, 3));
+                p1.AddTerm(new Term(1, 2));
+                p1.AddTerm(new Term(23, 5));
+                p1.AddTerm(new Term(69, 1));
+                p1.AddTerm(new Term(4, 6));
 
+                p1.Print();
             }
+            catch (ArgumentException e)
+            { Console.WriteLine(e.Message); }
 
-           
             Console.ReadKey();
         }
     }

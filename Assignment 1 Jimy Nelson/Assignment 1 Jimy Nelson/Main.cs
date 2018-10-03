@@ -58,7 +58,7 @@ namespace Assignment_1_Jimy_Nelson
                 p1.AddTerm(new Term(69, 1));
                 p1.AddTerm(new Term(4, 6));
 
-                p1.Print();
+                p1.Print(); // Viola, sorted by expo, need to finish add/subtract polynomial to sort by coeff too
             }
             catch (ArgumentException e)
             { Console.WriteLine(e.Message); }

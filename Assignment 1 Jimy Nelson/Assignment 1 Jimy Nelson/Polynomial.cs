@@ -31,8 +31,6 @@ namespace Assignment_1_Jimy_Nelson
         // is less than, equal to, or greater than the exponent of obj.
         public int CompareTo(Object obj)
         {
-
-
             // Needs to check for null???
 
             Term t = obj as Term;
@@ -45,11 +43,6 @@ namespace Assignment_1_Jimy_Nelson
             else
                 return 1;
         }
-        // Read and write properties for each data member
-
-        // Needs to check for null???
-
-
 
         // Read and write properties for each data member
         public double Coeff
@@ -69,11 +62,9 @@ namespace Assignment_1_Jimy_Nelson
         }
     }
 
-
-
-      
     public class Node<T>
     {
+        // Read and write properties for each data member
         private T Item { get; set; }
         private Node<T> Next { get; set; }
         public Node()
@@ -82,13 +73,11 @@ namespace Assignment_1_Jimy_Nelson
         }
         public Node(T item, Node<T> next)
         {
-            item = Item;
-            next = Next;
+            Item = item;
+            Next = next;
         }
-        
-        // Read and write properties for each data member
     }
-    /*
+    
     interface IDegree
     {
         bool Order(Object obj);
@@ -97,12 +86,27 @@ namespace Assignment_1_Jimy_Nelson
     {
         // A reference to the first node of a singly-linked list
         private Node<Term> Front;
+        private int count;  // Keeps track of number of terms
         // Creates the polynomial 0
         public Polynomial()
         { }
         // Inserts the given term t into the current polynomial in its proper order
         public void AddTerm (Term t)
-        { … }
+        {
+            Node<Term> current = Front;
+            if (count > 0)
+            {
+                
+            }
+            else
+            {
+                current = new Node<Term>(t, current.Next);
+            }
+            current = new Node<Term>(t);
+            count++;
+            //t.Expo
+
+        }
         // Adds the given polynomials p and q to yield a new polynomial
         public static Polynomial operator +(Polynomial p, Polynomial q)
         { … }
@@ -138,6 +142,4 @@ namespace Assignment_1_Jimy_Nelson
         public void Print()
         { … }
     }
-
-    */
 }

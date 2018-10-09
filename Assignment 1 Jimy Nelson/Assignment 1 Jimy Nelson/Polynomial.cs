@@ -21,9 +21,7 @@ namespace Assignment_1_Jimy_Nelson
         // Evaluates the current term for a given x
         public double Evaluate(double x)
         {
-            double answer;
-            answer = Coefficient * Math.Pow(x, Exponent);
-
+            double answer = Coefficient * Math.Pow(x, Exponent);
             return answer;
         }
 
@@ -88,7 +86,6 @@ namespace Assignment_1_Jimy_Nelson
         }
     }
    
-
     interface IDegree 
     {
         bool Order(Object obj);
@@ -110,7 +107,7 @@ namespace Assignment_1_Jimy_Nelson
             Node<Term> previous = Front;
             Node<Term> current = Front.Next;       
             
-            // Sort Exponent
+            // Sort exponents
             while (current != null && t.CompareTo(current.Item) < 0)
             {
                 previous = current;
@@ -120,7 +117,7 @@ namespace Assignment_1_Jimy_Nelson
             previous.Next = new Node<Term>(t, previous.Next);
             count++;
 
-            // Gather Like Terms
+            // Gather like terms
             previous = Front;
             current = Front.Next;
             while (current.Next != null)

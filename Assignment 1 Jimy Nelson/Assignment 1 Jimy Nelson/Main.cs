@@ -48,25 +48,24 @@ namespace Assignment_1_Jimy_Nelson
 
             try
             {
-                // For testing class while developing code pls dont delete/change until finished assignment
+                // For testing class while developing code pls dont delete until finished assignment
                 Polynomial p1 = new Polynomial();
                 Polynomial p2 = new Polynomial();
                 Polynomial p3 = new Polynomial();
 
                 p1.AddTerm(new Term(2, 2));
-                p1.AddTerm(new Term(2, 2));
+                p1.AddTerm(new Term(2, 2)); // 4x^2
 
                 p2.AddTerm(new Term(1, 2));
-                p2.AddTerm(new Term(1, 3));
                 p2.AddTerm(new Term(1, 4));
-                p2.AddTerm(new Term(69, 69));
+                p2.AddTerm(new Term(5, 5)); // 5x^5 + 1x^4 + 1x^2
 
                 p1.Print();
                 p2.Print();
                 p3 = p1 + p2;
                 p3.Print();
 
-                Console.WriteLine(p1.Evaluate(1));
+                Console.WriteLine(p2.Evaluate(1)); // 5(1)^5 + 1(1)^4 + 1(1)^2
 
             }
             catch (ArgumentException e)

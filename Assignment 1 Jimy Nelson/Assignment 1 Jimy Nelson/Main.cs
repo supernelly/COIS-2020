@@ -50,16 +50,17 @@ namespace Assignment_1_Jimy_Nelson
             {
                 //  For testing class while developing code pls dont delete until finished assignment
                 Polynomial<Term> p1 = new Polynomial<Term>();
-                p1.AddTerm(new Term(4, 7));
+                p1.AddTerm(new Term(5, 7));
                 p1.AddTerm(new Term(4, 4));
+                
                 p1.AddTerm(new Term(4, 3));
-                p1.AddTerm(new Term(1, 2));
-                p1.AddTerm(new Term(23, 5));
-                p1.AddTerm(new Term(10, 1));
-                p1.AddTerm(new Term(4, 4));
-                p1.AddTerm(new Term(10, 1));
-                p1.AddTerm(new Term(4, 6));
-
+                //p1.AddTerm(new Term(1, 2));
+                //p1.AddTerm(new Term(23, 5));
+                //p1.AddTerm(new Term(10, 1));
+                //p1.AddTerm(new Term(4, 4));
+                //p1.AddTerm(new Term(10, 1));
+                //p1.AddTerm(new Term(4, 6));
+                
                 p1.Print(); // Viola, sorted by expo, need to finish add/subtract polynomial to sort by coeff too
             }
             catch (ArgumentException e)

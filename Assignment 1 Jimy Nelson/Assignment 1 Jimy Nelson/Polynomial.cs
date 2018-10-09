@@ -92,39 +92,50 @@ namespace Assignment_1_Jimy_Nelson
     {
         bool Order(Object obj);
     }
-    public class Polynomial<Term> : IDegree where Term : IComparable
+    public class Polynomial<T> : IDegree where T : IComparable
     {
         // A reference to the first node of a singly-linked list
-        private Node<Term> Front;
+        private Node<T> Front;
         private int count;  // Keeps track of number of terms
 
         // Creates the polynomial 0
         public Polynomial()
-        { Front = new Node<Term>(); }
+        { Front = new Node<T>(); }
 
         // Inserts the given term "term" into the current polynomial in its proper order
-        public void AddTerm(Term term)
+        public void AddTerm(T term)
         {
-            Node<Term> previous = Front;
-            Node<Term> current = Front.Next;
-
+            Node<T> previous = Front;
+            Node<T> current = Front.Next;
+            int coeff1, coeff2, expo1, expo2;
+            
             while (current != null && term.CompareTo(current.Item) < 0)
-            {
-                //if (current.Item.CompareCoeff(current.Next.Item) > 0)
-
+            {  
                 previous = current;
+
+                coeff1 = Int32.Parse(previous.Item.ToString().Substring(0, 1));
+                coeff2 = Int32.Parse(current.Item.ToString().Substring(0, 1));
+                Console.WriteLine(coeff1);
+                Console.WriteLine(coeff2);
+                //expo1 = Int32.Parse(previous.Item.ToString().Substring());
+
+
+                //if (coeff1 == coeff2)
+
                 current = current.Next;
+
+
             }
             //while (current.Item.CompareTo(current.Next.Item) > 0)
 
-            previous.Next = new Node<Term>(term, previous.Next);
+            previous.Next = new Node<T>(term, previous.Next);
             count++;
         }
 
         // Adds the given polynomials p and q to yield a new polynomial
-        public static Polynomial<Term> operator+(Polynomial<Term> p, Polynomial<Term> q)
+        public static Polynomial<T> operator+(Polynomial<T> p, Polynomial<T> q)
         {
-            Polynomial<Term> pq = new Polynomial<Term>();
+            Polynomial<T> pq = new Polynomial<T>();
 
             return pq;
         }
@@ -145,7 +156,7 @@ namespace Assignment_1_Jimy_Nelson
         // Prints the current polynomial
         public void Print()
         {
-            Node<Term> temp = Front.Next;
+            Node<T> temp = Front.Next;
             while (temp != null)
             {
                 Console.Write(temp.Item);

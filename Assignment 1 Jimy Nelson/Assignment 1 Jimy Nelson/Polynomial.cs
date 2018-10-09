@@ -125,8 +125,6 @@ namespace Assignment_1_Jimy_Nelson
             current = Front.Next;
             while (current.Next != null)
             {
-                // Still needs to be fixed
-                Console.WriteLine(previous.Next.Item.CompareTo(current.Next.Item));
                 Term p = previous.Next.Item as Term;
                 Term c = current.Next.Item as Term;
                 Term temp = new Term(0, 0);
@@ -137,7 +135,13 @@ namespace Assignment_1_Jimy_Nelson
                     temp.Coeff = p.Coeff + c.Coeff;
                     temp.Expo = p.Expo;
 
-                    previous.Next = new Node<Term>(temp, previous.Next);
+                    if (current != null)
+                    {
+                        // Replaces two nodes with one node
+                        previous.Next = current.Next.Next;
+                        previous.Next = new Node<Term>(temp, previous.Next);
+                        count--;
+                    }
                 } 
                 previous = current;
                 current = current.Next;
@@ -148,8 +152,16 @@ namespace Assignment_1_Jimy_Nelson
         public static Polynomial operator+(Polynomial p, Polynomial q)
         {
             Polynomial pq = new Polynomial();
+            Node<Term> currentQ = q.Front.Next;
+            Term temp = new Term(0, 0);
 
-           
+            pq = p; // Add all terms into one polynomial, addTerm() will add the like terms
+            while (currentQ != null)
+            {
+                Console.WriteLine(currentQ.Item);
+                pq.AddTerm(currentQ.Item);
+                currentQ = currentQ.Next;
+            }
             return pq;
         }
         /*
@@ -176,6 +188,8 @@ namespace Assignment_1_Jimy_Nelson
                 temp = temp.Next;
                 if (temp != null)
                     Console.Write(" + ");
+                else
+                    Console.WriteLine();
             }
         }
 

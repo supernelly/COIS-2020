@@ -50,18 +50,22 @@ namespace Assignment_1_Jimy_Nelson
             {
                 // For testing class while developing code pls dont delete/change until finished assignment
                 Polynomial p1 = new Polynomial();
-                p1.AddTerm(new Term(1, 1));
-                p1.AddTerm(new Term(4, 4));
-                
-                p1.AddTerm(new Term(4, 4));
-                p1.AddTerm(new Term(1, 5));
-                //p1.AddTerm(new Term(23, 5));
-                //p1.AddTerm(new Term(10, 1));
-                //p1.AddTerm(new Term(4, 4));
-                //p1.AddTerm(new Term(10, 1));
-                //p1.AddTerm(new Term(4, 6));
-                
-                p1.Print(); // Viola, sorted by expo, need to finish add/subtract polynomial to sort by coeff too
+                p1.AddTerm(new Term(6, 4));
+                p1.AddTerm(new Term(2, 2));
+                p1.AddTerm(new Term(2, 3));
+                p1.Print();
+
+                // Testing adding polynomials
+                Polynomial p2 = new Polynomial();
+                Polynomial p3 = new Polynomial();
+                p2.AddTerm(new Term(1, 2));
+                p2.AddTerm(new Term(1, 3));
+                p2.AddTerm(new Term(1, 4));
+
+                p2.Print();
+                p3 = p1 + p2;
+                p3.Print();
+
             }
             catch (ArgumentException e)
             { Console.WriteLine(e.Message); }

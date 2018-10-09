@@ -153,12 +153,17 @@ namespace Assignment_1_Jimy_Nelson
         {
             Polynomial pq = new Polynomial();
             Node<Term> currentQ = q.Front.Next;
+            Node<Term> currentP = p.Front.Next;
             Term temp = new Term(0, 0);
 
-            pq = p; // Add all terms into one polynomial, addTerm() will add the like terms
+            // Add all terms from p and q into one polynomial, addTerm() will add the like terms
+            while (currentP != null)
+            {
+                pq.AddTerm(currentP.Item);
+                currentP = currentP.Next;
+            }
             while (currentQ != null)
             {
-                Console.WriteLine(currentQ.Item);
                 pq.AddTerm(currentQ.Item);
                 currentQ = currentQ.Next;
             }
@@ -170,14 +175,23 @@ namespace Assignment_1_Jimy_Nelson
         {
             T pq = new Polynomial();
         }
+        */
         // Evaluates the current polynomial for a given x
         public double Evaluate(double x)
         {
-            double result;
-            result = 0;
+            double result = 0;
+            Node<Term> previous = Front;
+            Node<Term> current = Front.Next;
+
+            while (current != null)
+            {
+                result = result + current.Item.Evaluate(x);
+                current = current.Next;
+            }
+
             return result;
         }
-        */
+        
         // Prints the current polynomial
         public void Print()
         {

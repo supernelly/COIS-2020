@@ -94,49 +94,60 @@ namespace Assignment_1_Jimy_Nelson
         bool Order(Object obj);
        
     }
-    public class Polynomial<T> : IDegree where T : IComparable
+    public class Polynomial : IDegree
     {
         // A reference to the first node of a singly-linked list
-        private Node<T> Front;
+        private Node<Term> Front = new Node<Term>();
         private int count;  // Keeps track of number of terms
 
         // Creates the polynomial 0
         public Polynomial() 
-        { Front = new Node<T>(); }
+        { }
 
         // Inserts the given term "term" into the current polynomial in its proper order
-        public void AddTerm(T term)
+        public void AddTerm(Term t)
         {
-            Node<T> previous = Front;
-            Node<T> current = Front.Next;
-
-            int coeff1, coeff2, expo1, expo2;
-
-            while (current != null && term.CompareTo(current.Item) < 0)
+            Node<Term> previous = Front;
+            Node<Term> current = Front.Next;       
+            
+            // Sort Exponent
+            while (current != null && t.CompareTo(current.Item) < 0)
             {
                 previous = current;
-
-                coeff1 = Int32.Parse(previous.Item.ToString().Substring(0, 1));
-                coeff2 = Int32.Parse(current.Item.ToString().Substring(0, 1));
-                Console.WriteLine(coeff1);
-                Console.WriteLine(coeff2);
-                //expo1 = Int32.Parse(previous.Item.ToString().Substring());
-
-
-                //if (coeff1 == coeff2)
-
                 current = current.Next;
             }
-            //while (current.Item.CompareTo(current.Next.Item) > 0)
 
-            previous.Next = new Node<T>(term, previous.Next);
+            previous.Next = new Node<Term>(t, previous.Next);
             count++;
+
+            // Gather Like Terms
+            previous = Front;
+            current = Front.Next;
+            while (current.Next != null)
+            {
+                // Still needs to be fixed
+                Console.WriteLine(previous.Next.Item.CompareTo(current.Next.Item));
+                Term p = previous.Next.Item as Term;
+                Term c = current.Next.Item as Term;
+                Term temp = new Term(0, 0);
+                if (previous.Next.Item.CompareTo(current.Next.Item) == 0)
+                {
+                    p = previous.Next.Item;
+                    c = current.Next.Item;
+                    temp.Coeff = p.Coeff + c.Coeff;
+                    temp.Expo = p.Expo;
+
+                    previous.Next = new Node<Term>(temp, previous.Next);
+                } 
+                previous = current;
+                current = current.Next;
+            }
         }
 
         // Adds the given polynomials p and q to yield a new polynomial
-        public static Polynomial<T> operator+(Polynomial<T> p, Polynomial<T> q)
+        public static Polynomial operator+(Polynomial p, Polynomial q)
         {
-            Polynomial<T> pq = new Polynomial<T>();
+            Polynomial pq = new Polynomial();
 
            
             return pq;
@@ -158,7 +169,7 @@ namespace Assignment_1_Jimy_Nelson
         // Prints the current polynomial
         public void Print()
         {
-            Node<T> temp = Front.Next;
+            Node<Term> temp = Front.Next;
             while (temp != null)
             {
                 Console.Write(temp.Item);
@@ -174,7 +185,7 @@ namespace Assignment_1_Jimy_Nelson
             return true;
         }
     }
-    
+    /*
     public class Polynomials 
     {
         private List<Polynomials> P;
@@ -186,12 +197,12 @@ namespace Assignment_1_Jimy_Nelson
             List<Polynomials> polynomials = new List<Polynomials>(P);
             polynomials.Clear();
         }
-
+        
          //Retrieves the polynomial stored at position i-1 in the list
         public Polynomials Retrieve(int i)
         {
             int potato;
-            Node<T> curr = front;
+            Node<Term> curr = front;
             if (i >= 0 && i <= count - 1)
             {
                 for (potato = 0; potato <= count; potato++)
@@ -202,7 +213,6 @@ namespace Assignment_1_Jimy_Nelson
             }
             else
                 return default(T);
-
           }
         // Inserts polynomial p into the list of polynomials ordered by degree
         public void Insert(Polynomials p)
@@ -214,6 +224,6 @@ namespace Assignment_1_Jimy_Nelson
         public void Print()
         { }
     }
-    
+    */
 }
 

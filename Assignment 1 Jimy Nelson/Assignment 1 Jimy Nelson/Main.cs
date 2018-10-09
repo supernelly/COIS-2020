@@ -48,13 +48,13 @@ namespace Assignment_1_Jimy_Nelson
 
             try
             {
-                //  For testing class while developing code pls dont delete until finished assignment
-                Polynomial<Term> p1 = new Polynomial<Term>();
-                p1.AddTerm(new Term(5, 7));
+                // For testing class while developing code pls dont delete/change until finished assignment
+                Polynomial p1 = new Polynomial();
+                p1.AddTerm(new Term(1, 1));
                 p1.AddTerm(new Term(4, 4));
                 
-                p1.AddTerm(new Term(4, 3));
-                //p1.AddTerm(new Term(1, 2));
+                p1.AddTerm(new Term(4, 4));
+                p1.AddTerm(new Term(1, 5));
                 //p1.AddTerm(new Term(23, 5));
                 //p1.AddTerm(new Term(10, 1));
                 //p1.AddTerm(new Term(4, 4));

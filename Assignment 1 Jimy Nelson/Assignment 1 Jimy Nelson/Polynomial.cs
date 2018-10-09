@@ -87,45 +87,55 @@ namespace Assignment_1_Jimy_Nelson
             Next = next;
         }
     }
+   
 
-    interface IDegree
+    interface IDegree 
     {
         bool Order(Object obj);
+       
     }
-    public class Polynomial<Term> : IDegree where Term : IComparable
+    public class Polynomial<T> : IDegree where T : Term 
     {
         // A reference to the first node of a singly-linked list
-        private Node<Term> Front;
+        private Node<T> Front;
         private int count;  // Keeps track of number of terms
 
         // Creates the polynomial 0
-        public Polynomial()
-        { Front = new Node<Term>(); }
+        public Polynomial() 
+        { Front = new Node<T>(); }
 
         // Inserts the given term "term" into the current polynomial in its proper order
-        public void AddTerm(Term term)
+        public void AddTerm(T term)
         {
-            Node<Term> previous = Front;
-            Node<Term> current = Front.Next;
+            Node<T> previous = Front;
+            Node<T> current = Front.Next;
 
             while (current != null && term.CompareTo(current.Item) < 0)
             {
-                //if (current.Item.CompareCoeff(current.Next.Item) > 0)
-
                 previous = current;
-                current = current.Next;
+                current = current.Next;    
             }
             //while (current.Item.CompareTo(current.Next.Item) > 0)
 
-            previous.Next = new Node<Term>(term, previous.Next);
+            previous.Next = new Node<T>(term, previous.Next);
+
             count++;
         }
 
         // Adds the given polynomials p and q to yield a new polynomial
-        public static Polynomial<Term> operator+(Polynomial<Term> p, Polynomial<Term> q)
+        public static Polynomial<T> operator+(Polynomial<T> p, Polynomial<T> q)
         {
-            Polynomial<Term> pq = new Polynomial<Term>();
-
+            int something = 0;
+            Polynomial<T> pq = new Polynomial<T>();
+         if(p.count < something)
+            {
+                something++;
+            }
+         else
+            {
+                
+            }
+            
             return pq;
         }
         /*
@@ -145,7 +155,7 @@ namespace Assignment_1_Jimy_Nelson
         // Prints the current polynomial
         public void Print()
         {
-            Node<Term> temp = Front.Next;
+            Node<T> temp = Front.Next;
             while (temp != null)
             {
                 Console.Write(temp.Item);
@@ -161,22 +171,36 @@ namespace Assignment_1_Jimy_Nelson
             return true;
         }
     }
-    /*
-    public class Polynomials
+    
+    public class Polynomials 
     {
         private List<Polynomials> P;
+
         // Creates an empty list of polynomials
         public Polynomials()
         {
+           
             List<Polynomials> polynomials = new List<Polynomials>(P);
             polynomials.Clear();
         }
 
-        // Retrieves the polynomial stored at position i-1 in the list
+         //Retrieves the polynomial stored at position i-1 in the list
         public Polynomials Retrieve(int i)
         {
-            foreach
+            int potato;
+            Node<T> curr = front;
+            if (i >= 0 && i <= count - 1)
+            {
+                for (potato = 0; potato <= count; potato++)
+                {
+                    curr = curr.Next;
                 }
+                return curr.Item;
+            }
+            else
+                return default(T);
+
+          }
         // Inserts polynomial p into the list of polynomials ordered by degree
         public void Insert(Polynomials p)
         { }
@@ -187,6 +211,6 @@ namespace Assignment_1_Jimy_Nelson
         public void Print()
         { }
     }
-    */
+    
 }
 

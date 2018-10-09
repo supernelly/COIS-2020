@@ -169,13 +169,15 @@ namespace Assignment_1_Jimy_Nelson
             }
             return pq;
         }
-        /*
+        
         // Multiplies the given polynomials p and q to yield a new polynomial
-        public static Polynomial operator*(T p, T q)
+        public static Polynomial operator*(Polynomial p, Polynomial q)
         {
-            T pq = new Polynomial();
+            Polynomial pq = new Polynomial();
+            // reeeeeeeeeeeeeeeeee
+            return pq;
         }
-        */
+        
         // Evaluates the current polynomial for a given x
         public double Evaluate(double x)
         {

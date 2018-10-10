@@ -57,8 +57,6 @@ namespace Assignment_1_Jimy_Nelson
                 p1.AddTerm(new Term(2, 2));
                 p1.AddTerm(new Term(2, 2)); // 4x^2
                  
-                
-
                 p2.AddTerm(new Term(1, 2));
                 p2.AddTerm(new Term(1, 4));
                 p2.AddTerm(new Term(5, 5)); // 5x^5 + 1x^4 + 1x^2
@@ -67,12 +65,12 @@ namespace Assignment_1_Jimy_Nelson
                 p2.Print();
                 p3 = p1 + p2;
                 p3.Print();
+                Console.WriteLine(p2.Evaluate(1)); // 5(1)^5 + 1(1)^4 + 1(1)^2
 
                 Console.WriteLine("Mutiply test");
                 p4 = p1 * p2;
                 p4.Print();
 
-                Console.WriteLine(p2.Evaluate(1)); // 5(1)^5 + 1(1)^4 + 1(1)^2
 
             }
             catch (ArgumentException e)

@@ -145,6 +145,8 @@ namespace Assignment_1_Jimy_Nelson
             }
         }
 
+        
+
         // Adds the given polynomials p and q to yield a new polynomial
         public static Polynomial operator+(Polynomial p, Polynomial q)
         {
@@ -166,12 +168,71 @@ namespace Assignment_1_Jimy_Nelson
             }
             return pq;
         }
-        
+        //mutiplys the term and puts it in order
+        public void mutiply(Term t)
+        {
+            Node<Term> previous = Front;
+            Node<Term> current = Front.Next;
+
+            // Sort exponents
+            while (current != null && t.CompareTo(current.Item) < 0)
+            {
+                previous = current;
+                current = current.Next;
+            }
+
+            previous.Next = new Node<Term>(t, previous.Next);
+            count++;
+
+            // Gather like terms
+            previous = Front;
+            current = Front.Next;
+            while (current.Next != null)
+            {
+                Term p = previous.Next.Item as Term;
+                Term c = current.Next.Item as Term;
+                Term temp = new Term(0, 0);
+                if (previous.Next.Item.CompareTo(current.Next.Item) == 0)
+                {
+                    p = previous.Next.Item;
+                    c = current.Next.Item;
+                    temp.Coeff = p.Coeff * c.Coeff;
+                    temp.Expo = c.Expo;
+
+                    if (current != null)
+                    {
+                        // Replaces two nodes with one node
+                        previous.Next = current.Next.Next;
+                        previous.Next = new Node<Term>(temp, previous.Next);
+                        count--;
+                    }
+                }
+                previous = current;
+                current = current.Next;
+            }
+        }
+
+
+
         // Multiplies the given polynomials p and q to yield a new polynomial
         public static Polynomial operator*(Polynomial p, Polynomial q)
         {
+            Node<Term> currentq = q.Front.Next;
+            Node<Term> currentp = p.Front.Next;
             Polynomial pq = new Polynomial();
-            // reeeeeeeeeeeeeeeeee
+            Term temp = new Term(0, 0);
+            
+            //mutipling polynomials
+            while(currentp != null)
+            {
+                pq.mutiply(currentp.Item);
+                currentp = currentp.Next;
+            }
+            while (currentq != null)
+            {
+                pq.mutiply(currentq.Item);
+                currentq = currentq.Next;
+            }
             return pq;
         }
         

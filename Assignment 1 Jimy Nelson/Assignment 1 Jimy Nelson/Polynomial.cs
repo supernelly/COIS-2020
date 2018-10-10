@@ -234,45 +234,63 @@ namespace Assignment_1_Jimy_Nelson
                 return false;
         }
     }
-    /*
+    
     public class Polynomials 
     {
         private List<Polynomials> P;
-
+        private int count;
         // Creates an empty list of polynomials
         public Polynomials()
         {
            
             List<Polynomials> polynomials = new List<Polynomials>(P);
             polynomials.Clear();
+
         }
-        
-         //Retrieves the polynomial stored at position i-1 in the list
+
+        //Retrieves the polynomial stored at position i-1 in the list
         public Polynomials Retrieve(int i)
         {
-            int potato;
-            Node<Term> curr = front;
-            if (i >= 0 && i <= count - 1)
-            {
-                for (potato = 0; potato <= count; potato++)
-                {
-                    curr = curr.Next;
-                }
-                return curr.Item;
-            }
-            else
-                return default(T);
+            List<Polynomials> polynomials = new List<Polynomials>(P);
+            return polynomials[i - 1];
+            
           }
         // Inserts polynomial p into the list of polynomials ordered by degree
         public void Insert(Polynomials p)
-        { }
+        {
+            List<Polynomials> polynomials = new List<Polynomials>(P);
+            polynomials.Add(p); 
+        }
         // Deletes the polynomial at index i-1
         public void Delete(int i)
-        { }
+        {
+            List<Polynomials> polynomials = new List<Polynomials>(P);
+
+            int q;
+            if (i >= 0 && i <= count - 1)
+            {
+                // Shift items from A[pos+1..count-1] down one position
+
+                for (q = i + 1; q <= count - 1; q++)
+                {
+                    P[q - 1] = P[q];
+                }
+                count--;
+            }
+            // else do nothing
+        }
         // Prints out the list of polynomials (beginning with polynomial 1)
         public void Print()
-        { }
+        { 
+            {
+                foreach(Polynomial  in P)
+                {
+                    Console.WriteLine(P);
+
+            }
+            }
+        }
     }
-    */
+    
 }
 

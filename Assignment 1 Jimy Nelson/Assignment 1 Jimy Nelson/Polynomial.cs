@@ -188,7 +188,6 @@ namespace Assignment_1_Jimy_Nelson
                 }
                 currentP = currentP.Next;
             }
-
             return pq;
         }
         

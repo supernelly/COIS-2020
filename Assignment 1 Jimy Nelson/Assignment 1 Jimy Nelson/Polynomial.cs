@@ -88,8 +88,7 @@ namespace Assignment_1_Jimy_Nelson
    
     interface IDegree 
     {
-        bool Order(Object obj);
-       
+        bool Order(Object obj); 
     }
     public class Polynomial : IDegree
     {
@@ -221,10 +220,14 @@ namespace Assignment_1_Jimy_Nelson
             }
         }
 
+        // Returns true if the current polynomial's degree is greater/equal to the given polynomial's degree
         public bool Order(Object obj)
         {
-            //not done yet lol
-            return true;
+            Polynomial p = obj as Polynomial;
+            if (Front.Next.Item.CompareTo(p.Front.Next.Item) >= 0)
+                return true;
+            else
+                return false;
         }
     }
     /*

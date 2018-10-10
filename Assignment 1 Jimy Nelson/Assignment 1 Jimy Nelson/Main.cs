@@ -55,7 +55,8 @@ namespace Assignment_1_Jimy_Nelson
 
                 p1.AddTerm(new Term(2, 2));
                 p1.AddTerm(new Term(2, 2));
-                 
+                p1.AddTerm(new Term(2, 3));
+
                 p2.AddTerm(new Term(1, 2));
                 p2.AddTerm(new Term(1, 4));
                 p2.AddTerm(new Term(5, 5));
@@ -66,6 +67,8 @@ namespace Assignment_1_Jimy_Nelson
                 Console.WriteLine("Mutiply test");
                 p3 = p1 * p2;
                 p3.Print();
+
+                Console.WriteLine(p1.Order(p2));
 
 
             }

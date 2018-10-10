@@ -168,73 +168,66 @@ namespace Assignment_1_Jimy_Nelson
             }
             return pq;
         }
-        //mutiplys the term and puts it in order
-        public void mutiply(Term t)
-        {
-            Node<Term> previous = Front;
-            Node<Term> current = Front.Next;
 
-            // Sort exponents
-            while (current != null && t.CompareTo(current.Item) < 0)
-            {
-                previous = current;
-                current = current.Next;
-            }
-
-            previous.Next = new Node<Term>(t, previous.Next);
-            count++;
-
-            // Gather like terms
-            previous = Front;
-            current = Front.Next;
-            while (current.Next != null)
-            {
-                Term p = previous.Next.Item as Term;
-                Term c = current.Next.Item as Term;
-                Term temp = new Term(0, 0);
-                if (previous.Next.Item.CompareTo(current.Next.Item) == 0)
-                {
-                    p = previous.Next.Item;
-                    c = current.Next.Item;
-                    temp.Coeff = p.Coeff * c.Coeff;
-                    temp.Expo = c.Expo;
-
-                    if (current != null)
-                    {
-                        // Replaces two nodes with one node
-                        previous.Next = current.Next.Next;
-                        previous.Next = new Node<Term>(temp, previous.Next);
-                        count--;
-                    }
-                }
-                previous = current;
-                current = current.Next;
-            }
-        }
-
+  
 
 
         // Multiplies the given polynomials p and q to yield a new polynomial
         public static Polynomial operator*(Polynomial p, Polynomial q)
         {
+
+            int count = 0;
+            Node<Term> previousp = p.Front;
+            Node<Term> current = p.Front.Next;
             Node<Term> currentq = q.Front.Next;
             Node<Term> currentp = p.Front.Next;
             Polynomial pq = new Polynomial();
             Term temp = new Term(0, 0);
+
+            while (current != null && temp.CompareTo(current.Item) < 0)
+            {
+                previousp = current;
+                current = current.Next;
+            }
+
+            previousp.Next = new Node<Term>(temp, previousp.Next);
+            count++;
+
+            // Gather like terms
+            previousp = p.Front;
+            currentp = p.Front.Next;
+            while (current != null)
+            {
+                Term w = previousp.Next.Item as Term;
+                Term c = current.Next.Item as Term;
+                Term temp1 = new Term(0, 0);
+                if (previousp.Next.Item.CompareTo(current.Next.Item) == 0)
+                {
+                    w = previousp.Next.Item;
+                    c = current.Next.Item;
+                    temp1.Coeff = w.Coeff * c.Coeff;
+                    int v = w.Expo + c.Expo;
+                    
+                   byte expo = Convert.ToByte(v);
+                    temp1.Expo = expo;
+
+                    if (current != null)
+                    {
+                        // Replaces two nodes with one node
+                        previousp.Next = current.Next.Next;
+                        previousp.Next = new Node<Term>(temp1, previousp.Next);
+                        count--;
+                    }
+                }
+                previousp = current;
+                current = current.Next;
+            }
+
+
+            return pq;
             
             //mutipling polynomials
-            while(currentp != null)
-            {
-                pq.mutiply(currentp.Item);
-                currentp = currentp.Next;
-            }
-            while (currentq != null)
-            {
-                pq.mutiply(currentq.Item);
-                currentq = currentq.Next;
-            }
-            return pq;
-        }
+           }
         
         // Evaluates the current polynomial for a given x
         public double Evaluate(double x)

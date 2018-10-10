@@ -145,8 +145,6 @@ namespace Assignment_1_Jimy_Nelson
             }
         }
 
-        
-
         // Adds the given polynomials p and q to yield a new polynomial
         public static Polynomial operator+(Polynomial p, Polynomial q)
         {
@@ -169,65 +167,30 @@ namespace Assignment_1_Jimy_Nelson
             return pq;
         }
 
-  
-
-
         // Multiplies the given polynomials p and q to yield a new polynomial
         public static Polynomial operator*(Polynomial p, Polynomial q)
         {
-
-            int count = 0;
-            Node<Term> previousp = p.Front;
-            Node<Term> current = p.Front.Next;
-            Node<Term> currentq = q.Front.Next;
-            Node<Term> currentp = p.Front.Next;
             Polynomial pq = new Polynomial();
+            Node<Term> currentQ = q.Front.Next;
+            Node<Term> currentP = p.Front.Next;
             Term temp = new Term(0, 0);
 
-            while (current != null && temp.CompareTo(current.Item) < 0)
+            while (currentP != null)
             {
-                previousp = current;
-                current = current.Next;
-            }
-
-            previousp.Next = new Node<Term>(temp, previousp.Next);
-            count++;
-
-            // Gather like terms
-            previousp = p.Front;
-            currentp = p.Front.Next;
-            while (current != null)
-            {
-                Term w = previousp.Next.Item as Term;
-                Term c = current.Next.Item as Term;
-                Term temp1 = new Term(0, 0);
-                if (previousp.Next.Item.CompareTo(current.Next.Item) == 0)
+                currentQ = q.Front.Next; // Reset currentQ to the front of polynomial Q
+                while (currentQ != null)
                 {
-                    w = previousp.Next.Item;
-                    c = current.Next.Item;
-                    temp1.Coeff = w.Coeff * c.Coeff;
-                    int v = w.Expo + c.Expo;
-                    
-                   byte expo = Convert.ToByte(v);
-                    temp1.Expo = expo;
-
-                    if (current != null)
-                    {
-                        // Replaces two nodes with one node
-                        previousp.Next = current.Next.Next;
-                        previousp.Next = new Node<Term>(temp1, previousp.Next);
-                        count--;
-                    }
+                    temp = new Term(0, 0);
+                    temp.Expo = Convert.ToByte(currentP.Item.Expo + currentQ.Item.Expo);
+                    temp.Coeff = currentP.Item.Coeff * currentQ.Item.Coeff;
+                    pq.AddTerm(temp);
+                    currentQ = currentQ.Next;
                 }
-                previousp = current;
-                current = current.Next;
+                currentP = currentP.Next;
             }
-
 
             return pq;
-            
-            //mutipling polynomials
-           }
+        }
         
         // Evaluates the current polynomial for a given x
         public double Evaluate(double x)
@@ -241,7 +204,6 @@ namespace Assignment_1_Jimy_Nelson
                 result = result + current.Item.Evaluate(x);
                 current = current.Next;
             }
-
             return result;
         }
         

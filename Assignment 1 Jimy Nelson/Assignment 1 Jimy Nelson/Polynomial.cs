@@ -89,10 +89,10 @@ namespace Assignment_1_Jimy_Nelson
             Next = next;
         }
     }
-   
-    interface IDegree 
+
+    interface IDegree
     {
-        bool Order(Object obj); 
+        bool Order(Object obj);
     }
     public class Polynomial : IDegree
     {
@@ -101,15 +101,15 @@ namespace Assignment_1_Jimy_Nelson
         private int count;  // Keeps track of number of terms
 
         // Creates the polynomial 0
-        public Polynomial() 
+        public Polynomial()
         { }
 
         // Inserts the given term "term" into the current polynomial in its proper order
         public void AddTerm(Term t)
         {
             Node<Term> previous = Front;
-            Node<Term> current = Front.Next;       
-            
+            Node<Term> current = Front.Next;
+
             // Sort exponents
             while (current != null && t.CompareTo(current.Item) < 0)
             {
@@ -142,14 +142,14 @@ namespace Assignment_1_Jimy_Nelson
                         previous.Next = new Node<Term>(temp, previous.Next);
                         count--;
                     }
-                } 
+                }
                 previous = current;
                 current = current.Next;
             }
         }
 
         // Adds the given polynomials p and q to yield a new polynomial
-        public static Polynomial operator+(Polynomial p, Polynomial q)
+        public static Polynomial operator +(Polynomial p, Polynomial q)
         {
             Polynomial pq = new Polynomial();
             Node<Term> currentQ = q.Front.Next;
@@ -171,7 +171,7 @@ namespace Assignment_1_Jimy_Nelson
         }
 
         // Multiplies the given polynomials p and q to yield a new polynomial
-        public static Polynomial operator*(Polynomial p, Polynomial q)
+        public static Polynomial operator *(Polynomial p, Polynomial q)
         {
             Polynomial pq = new Polynomial();
             Node<Term> currentQ = q.Front.Next;
@@ -193,7 +193,7 @@ namespace Assignment_1_Jimy_Nelson
             }
             return pq;
         }
-        
+
         // Evaluates the current polynomial for a given x
         public double Evaluate(double x)
         {
@@ -208,7 +208,7 @@ namespace Assignment_1_Jimy_Nelson
             }
             return result;
         }
-        
+
         // Prints the current polynomial
         public void Print()
         {
@@ -234,143 +234,34 @@ namespace Assignment_1_Jimy_Nelson
                 return false;
         }
     }
-    
-    public class Polynomials 
+
+    public class Polynomials
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-        private List<Polynomials> P;
-        private int count;
-
-        public List<Polynomials> P1 { get => P; set => P = value; }
-
-        // Creates an empty list of polynomials
-        public Polynomials()
-        {
-           
-            List<Polynomials> polynomials = new List<Polynomials>(P1);
-            polynomials.Clear();
-
-=======
         private List<Polynomial> P;
         public int count;
+
         // Creates an empty list of polynomials
         public Polynomials()
         {
             P = new List<Polynomial>();
->>>>>>> 7a05e6638243ce4567f1ff55d45ff9249a668137
-=======
-        private List<Polynomials> P;
-        private int count;
-        // Creates an empty list of polynomials
-        public Polynomials()
-        {
-=======
-        private List<Polynomials> P;
-        private int count;
-        // Creates an empty list of polynomials
-        public Polynomials()
-        {
->>>>>>> parent of 7a05e66... d
-=======
-        private List<Polynomials> P;
-        private int count;
-        // Creates an empty list of polynomials
-        public Polynomials()
-        {
->>>>>>> parent of 7a05e66... d
-           
-            List<Polynomials> polynomials = new List<Polynomials>(P);
-            polynomials.Clear();
-
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> parent of 7a05e66... d
-=======
->>>>>>> parent of 7a05e66... d
-=======
->>>>>>> parent of 7a05e66... d
         }
 
         //Retrieves the polynomial stored at position i-1 in the list
-        public Polynomials Retrieve(int i)
+        public Polynomial Retrieve(int i)
         {
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-            List<Polynomials> polynomials = new List<Polynomials>(P1);
-            return polynomials[i - 1];            
-=======
             return P[i - 1];
->>>>>>> 7a05e6638243ce4567f1ff55d45ff9249a668137
-=======
-            List<Polynomials> polynomials = new List<Polynomials>(P);
-            return polynomials[i - 1];
-            
->>>>>>> parent of 7a05e66... d
-=======
-            List<Polynomials> polynomials = new List<Polynomials>(P);
-            return polynomials[i - 1];
-            
->>>>>>> parent of 7a05e66... d
-=======
-            List<Polynomials> polynomials = new List<Polynomials>(P);
-            return polynomials[i - 1];
-            
->>>>>>> parent of 7a05e66... d
-          }
+        }
+
         // Inserts polynomial p into the list of polynomials ordered by degree
-        public void Insert(Polynomials p)
+        public void Insert(Polynomial p)
         {
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-            List<Polynomials> polynomials = new List<Polynomials>(P1);
-            polynomials.Add(p); 
-=======
             count++;
             P.Add(p);
->>>>>>> 7a05e6638243ce4567f1ff55d45ff9249a668137
-=======
-            List<Polynomials> polynomials = new List<Polynomials>(P);
-            polynomials.Add(p); 
->>>>>>> parent of 7a05e66... d
-=======
-            List<Polynomials> polynomials = new List<Polynomials>(P);
-            polynomials.Add(p); 
->>>>>>> parent of 7a05e66... d
-=======
-            List<Polynomials> polynomials = new List<Polynomials>(P);
-            polynomials.Add(p); 
->>>>>>> parent of 7a05e66... d
         }
+
         // Deletes the polynomial at index i-1
         public void Delete(int i)
         {
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-            List<Polynomials> polynomials = new List<Polynomials>(P1);
-
-=======
->>>>>>> 7a05e6638243ce4567f1ff55d45ff9249a668137
-=======
-            List<Polynomials> polynomials = new List<Polynomials>(P);
-
->>>>>>> parent of 7a05e66... d
-=======
-            List<Polynomials> polynomials = new List<Polynomials>(P);
-
->>>>>>> parent of 7a05e66... d
-=======
-            List<Polynomials> polynomials = new List<Polynomials>(P);
-
->>>>>>> parent of 7a05e66... d
             int q;
             if (i >= 0 && i <= count - 1)
             {
@@ -378,53 +269,17 @@ namespace Assignment_1_Jimy_Nelson
 
                 for (q = i + 1; q <= count - 1; q++)
                 {
-                    P1[q - 1] = P1[q];
+                    P[q - 1] = P[q];
                 }
                 count--;
             }
-            // else do nothing
         }
+
         // Prints out the list of polynomials (beginning with polynomial 1)
         public void Print()
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-        { 
-            {
-                foreach(Polynomial  in P1)
-                {
-                    Console.WriteLine(P1);
-
-            }
-            }
-=======
         {
             foreach (Polynomial p in P)
                 p.Print();
->>>>>>> 7a05e6638243ce4567f1ff55d45ff9249a668137
-=======
-=======
->>>>>>> parent of 7a05e66... d
-=======
->>>>>>> parent of 7a05e66... d
-        { 
-            {
-                foreach(Polynomial  in P)
-                {
-                    Console.WriteLine(P);
-
-            }
-            }
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> parent of 7a05e66... d
-=======
->>>>>>> parent of 7a05e66... d
-=======
->>>>>>> parent of 7a05e66... d
         }
     }
-    
 }
-

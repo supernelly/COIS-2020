@@ -239,6 +239,7 @@ namespace Assignment_1_Jimy_Nelson
     {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         private List<Polynomials> P;
         private int count;
 
@@ -265,16 +266,27 @@ namespace Assignment_1_Jimy_Nelson
         // Creates an empty list of polynomials
         public Polynomials()
         {
+=======
+        private List<Polynomials> P;
+        private int count;
+        // Creates an empty list of polynomials
+        public Polynomials()
+        {
+>>>>>>> parent of 7a05e66... d
            
             List<Polynomials> polynomials = new List<Polynomials>(P);
             polynomials.Clear();
 
+<<<<<<< HEAD
+>>>>>>> parent of 7a05e66... d
+=======
 >>>>>>> parent of 7a05e66... d
         }
 
         //Retrieves the polynomial stored at position i-1 in the list
         public Polynomials Retrieve(int i)
         {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
             List<Polynomials> polynomials = new List<Polynomials>(P1);
@@ -287,10 +299,16 @@ namespace Assignment_1_Jimy_Nelson
             return polynomials[i - 1];
             
 >>>>>>> parent of 7a05e66... d
+=======
+            List<Polynomials> polynomials = new List<Polynomials>(P);
+            return polynomials[i - 1];
+            
+>>>>>>> parent of 7a05e66... d
           }
         // Inserts polynomial p into the list of polynomials ordered by degree
         public void Insert(Polynomials p)
         {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
             List<Polynomials> polynomials = new List<Polynomials>(P1);
@@ -303,16 +321,25 @@ namespace Assignment_1_Jimy_Nelson
             List<Polynomials> polynomials = new List<Polynomials>(P);
             polynomials.Add(p); 
 >>>>>>> parent of 7a05e66... d
+=======
+            List<Polynomials> polynomials = new List<Polynomials>(P);
+            polynomials.Add(p); 
+>>>>>>> parent of 7a05e66... d
         }
         // Deletes the polynomial at index i-1
         public void Delete(int i)
         {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             List<Polynomials> polynomials = new List<Polynomials>(P1);
 
 =======
 >>>>>>> 7a05e6638243ce4567f1ff55d45ff9249a668137
+=======
+            List<Polynomials> polynomials = new List<Polynomials>(P);
+
+>>>>>>> parent of 7a05e66... d
 =======
             List<Polynomials> polynomials = new List<Polynomials>(P);
 
@@ -334,6 +361,7 @@ namespace Assignment_1_Jimy_Nelson
         public void Print()
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         { 
             {
                 foreach(Polynomial  in P1)
@@ -348,6 +376,8 @@ namespace Assignment_1_Jimy_Nelson
                 p.Print();
 >>>>>>> 7a05e6638243ce4567f1ff55d45ff9249a668137
 =======
+=======
+>>>>>>> parent of 7a05e66... d
         { 
             {
                 foreach(Polynomial  in P)
@@ -356,6 +386,9 @@ namespace Assignment_1_Jimy_Nelson
 
             }
             }
+<<<<<<< HEAD
+>>>>>>> parent of 7a05e66... d
+=======
 >>>>>>> parent of 7a05e66... d
         }
     }

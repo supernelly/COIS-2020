@@ -250,7 +250,6 @@ namespace Assignment_1_Jimy_Nelson
         public Polynomial Retrieve(int i)
         {
             return P[i - 1];
-            
         }
 
         // Inserts polynomial p into the list of polynomials ordered by degree
@@ -263,7 +262,6 @@ namespace Assignment_1_Jimy_Nelson
         // Deletes the polynomial at index i-1
         public void Delete(int i)
         {
-           
             P.RemoveAt(i - 1);
         }
 

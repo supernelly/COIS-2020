@@ -129,6 +129,12 @@ namespace Assignment_1_Jimy_Nelson
                         case 'E':
                             Console.WriteLine("Evaluate a polynomial");
 
+                            if (list.count == 0)
+                            {
+                                Console.WriteLine("There is no polynomials in list");
+                                break;
+                            }
+
                             // Input number for 'x'
                             Console.Write("Enter number for 'x': ");
                             answerEvaluate = Console.ReadLine();
@@ -205,6 +211,12 @@ namespace Assignment_1_Jimy_Nelson
                             break;
 
                         case 'A':
+                            if (list.count == 0)
+                            {
+                                Console.WriteLine("There is no polynomials in list");
+                                break;
+                            }
+
                             Console.WriteLine("Add two polynomials");
 
                             // Input first index number
@@ -259,6 +271,12 @@ namespace Assignment_1_Jimy_Nelson
                             break;
 
                         case 'M':
+                            if (list.count == 0)
+                            {
+                                Console.WriteLine("There is no polynomials in list");
+                                break;
+                            }
+
                             Console.WriteLine("Multiply two polynomials");
 
                             // Input first index number

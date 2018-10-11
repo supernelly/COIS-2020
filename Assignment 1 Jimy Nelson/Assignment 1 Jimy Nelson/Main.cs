@@ -175,6 +175,12 @@ namespace Assignment_1_Jimy_Nelson
                         case 'D':
                             Console.WriteLine("Delete a polynomial");
 
+                            if (list.count == 0)
+                            {
+                                Console.WriteLine("There is no polynomials in list");
+                                break;
+                            }
+
                             // Input index number
                             while (numCheck == true)
                             {

@@ -263,6 +263,7 @@ namespace Assignment_1_Jimy_Nelson
         public void Delete(int i)
         {
             P.RemoveAt(i - 1);
+            count--;
         }
 
         // Prints out the list of polynomials (beginning with polynomial 1)

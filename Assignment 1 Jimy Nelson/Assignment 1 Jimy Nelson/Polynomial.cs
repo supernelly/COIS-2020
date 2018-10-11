@@ -250,6 +250,7 @@ namespace Assignment_1_Jimy_Nelson
         public Polynomial Retrieve(int i)
         {
             return P[i - 1];
+            
         }
 
         // Inserts polynomial p into the list of polynomials ordered by degree
@@ -262,17 +263,8 @@ namespace Assignment_1_Jimy_Nelson
         // Deletes the polynomial at index i-1
         public void Delete(int i)
         {
-            int q;
-            if (i >= 0 && i <= count - 1)
-            {
-                // Shift items from A[pos+1..count-1] down one position
-
-                for (q = i + 1; q <= count - 1; q++)
-                {
-                    P[q - 1] = P[q];
-                }
-                count--;
-            }
+           
+            P.RemoveAt(i - 1);
         }
 
         // Prints out the list of polynomials (beginning with polynomial 1)

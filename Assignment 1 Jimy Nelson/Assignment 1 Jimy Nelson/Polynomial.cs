@@ -238,6 +238,7 @@ namespace Assignment_1_Jimy_Nelson
     public class Polynomials 
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
         private List<Polynomials> P;
         private int count;
 
@@ -258,21 +259,39 @@ namespace Assignment_1_Jimy_Nelson
         {
             P = new List<Polynomial>();
 >>>>>>> 7a05e6638243ce4567f1ff55d45ff9249a668137
+=======
+        private List<Polynomials> P;
+        private int count;
+        // Creates an empty list of polynomials
+        public Polynomials()
+        {
+           
+            List<Polynomials> polynomials = new List<Polynomials>(P);
+            polynomials.Clear();
+
+>>>>>>> parent of 7a05e66... d
         }
 
         //Retrieves the polynomial stored at position i-1 in the list
-        public Polynomial Retrieve(int i)
+        public Polynomials Retrieve(int i)
         {
+<<<<<<< HEAD
 <<<<<<< HEAD
             List<Polynomials> polynomials = new List<Polynomials>(P1);
             return polynomials[i - 1];            
 =======
             return P[i - 1];
 >>>>>>> 7a05e6638243ce4567f1ff55d45ff9249a668137
+=======
+            List<Polynomials> polynomials = new List<Polynomials>(P);
+            return polynomials[i - 1];
+            
+>>>>>>> parent of 7a05e66... d
           }
         // Inserts polynomial p into the list of polynomials ordered by degree
-        public void Insert(Polynomial p)
+        public void Insert(Polynomials p)
         {
+<<<<<<< HEAD
 <<<<<<< HEAD
             List<Polynomials> polynomials = new List<Polynomials>(P1);
             polynomials.Add(p); 
@@ -280,15 +299,24 @@ namespace Assignment_1_Jimy_Nelson
             count++;
             P.Add(p);
 >>>>>>> 7a05e6638243ce4567f1ff55d45ff9249a668137
+=======
+            List<Polynomials> polynomials = new List<Polynomials>(P);
+            polynomials.Add(p); 
+>>>>>>> parent of 7a05e66... d
         }
         // Deletes the polynomial at index i-1
         public void Delete(int i)
         {
 <<<<<<< HEAD
+<<<<<<< HEAD
             List<Polynomials> polynomials = new List<Polynomials>(P1);
 
 =======
 >>>>>>> 7a05e6638243ce4567f1ff55d45ff9249a668137
+=======
+            List<Polynomials> polynomials = new List<Polynomials>(P);
+
+>>>>>>> parent of 7a05e66... d
             int q;
             if (i >= 0 && i <= count - 1)
             {
@@ -300,9 +328,11 @@ namespace Assignment_1_Jimy_Nelson
                 }
                 count--;
             }
+            // else do nothing
         }
         // Prints out the list of polynomials (beginning with polynomial 1)
         public void Print()
+<<<<<<< HEAD
 <<<<<<< HEAD
         { 
             {
@@ -317,6 +347,16 @@ namespace Assignment_1_Jimy_Nelson
             foreach (Polynomial p in P)
                 p.Print();
 >>>>>>> 7a05e6638243ce4567f1ff55d45ff9249a668137
+=======
+        { 
+            {
+                foreach(Polynomial  in P)
+                {
+                    Console.WriteLine(P);
+
+            }
+            }
+>>>>>>> parent of 7a05e66... d
         }
     }
     

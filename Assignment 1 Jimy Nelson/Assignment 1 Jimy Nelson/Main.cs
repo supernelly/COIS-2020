@@ -19,14 +19,12 @@ namespace Assignment_1_Jimy_Nelson
     {
         public static void Main()
         {
-            string answerExpo = "", answerCoeff = "", answerCommand = "", answerIndex = "", answerEvaluate = "", answerTerm = "";
-            int coeff = 0, index = 0, evaluate = 0;
-            byte expo = 0;
-            char command = 'o', term = 'o';
-            bool letterCheck = true, letterCheck2 = true, numCheck = true, createTerm = true;
+            string answerExpo = "", answerCoeff = "", answerCommand = "", answerIndex = "";
+            int expo = 0, coeff = 0, index = 0;
+            char command = 'o';
+            bool letterCheck = true;
 
             Term t1 = new Term(0, 0);
-            Polynomials list = new Polynomials();
             Polynomial p1 = new Polynomial();
             Polynomial p2 = new Polynomial();
             Polynomial p3 = new Polynomial();
@@ -37,11 +35,10 @@ namespace Assignment_1_Jimy_Nelson
                 while (letterCheck == true)
                 {
                     // Prompt user for a command
-                    Console.WriteLine();
                     Console.WriteLine("Command Options");
                     Console.WriteLine("Create a polynomial: 'c' or 'C'");
                     Console.WriteLine("View list of polynomials: 'v' or 'V'");
-                    Console.WriteLine("Evaluate a polynomial: 'e' or 'E'");
+                    Console.WriteLine("Evaluate a polynomial: 'd' or 'D'");
                     Console.WriteLine("Delete a polynomial: 'd' or 'D'");
                     Console.WriteLine("Add two polynomials: 'a' or 'A'");
                     Console.WriteLine("Multiply two polynomials: 'm' or 'M'");
@@ -53,6 +50,14 @@ namespace Assignment_1_Jimy_Nelson
                     while (!Char.TryParse(answerCommand, out command))
                     {
                         Console.WriteLine("Please enter an acceptable letter.");
+                        Console.WriteLine("Command Options");
+                        Console.WriteLine("Create a polynomial: 'c' or 'C'");
+                        Console.WriteLine("View list of polynomials: 'v' or 'V'");
+                        Console.WriteLine("Evaluate a polynomial: 'e' or 'E'");
+                        Console.WriteLine("Delete a polynomial: 'd' or 'D'");
+                        Console.WriteLine("Add two polynomials: 'a' or 'A'");
+                        Console.WriteLine("Multiply two polynomials: 'm' or 'M'");
+                        Console.WriteLine("Quit: 'q' or 'Q'");
                         Console.Write("Please enter a command: ");
                         answerCommand = Console.ReadLine();
                     }
@@ -62,113 +67,58 @@ namespace Assignment_1_Jimy_Nelson
                     {
                         case 'C':
                             Console.WriteLine("Create a polynomial");
-                            while (createTerm == true)
+
+                            // Input coefficient
+                            Console.Write("Enter coefficient: ");
+                            answerCoeff = Console.ReadLine();
+                            while (!Int32.TryParse(answerCoeff, out coeff))
                             {
-                                // Input coefficient
+                                Console.WriteLine("Please enter a proper number.");
                                 Console.Write("Enter coefficient: ");
                                 answerCoeff = Console.ReadLine();
-                                while (!Int32.TryParse(answerCoeff, out coeff))
-                                {
-                                    Console.WriteLine("Please enter a proper number.");
-                                    Console.Write("Enter coefficient: ");
-                                    answerCoeff = Console.ReadLine();
-                                }
-                                t1.Coeff = coeff;
-
-                                // Input exponent
-                                Console.Write("Enter exponent: ");
-                                answerExpo = Console.ReadLine();
-                                while (!Byte.TryParse(answerExpo, out expo))
-                                {
-                                    Console.WriteLine("Please enter a proper number.");
-                                    Console.Write("Enter exponent: ");
-                                    answerExpo = Console.ReadLine();
-                                }
-                                t1.Expo = expo;
-
-                                p1.AddTerm(t1);
-                                t1 = new Term(0, 0);
-
-                                // More Terms
-                                while (letterCheck2 == true)
-                                {
-                                    Console.WriteLine("Create more terms?");
-                                    Console.Write("Enter 'y' or 'Y' for Yes, 'n' or N' for No: ");
-                                    answerTerm = Console.ReadLine();
-                                    while (!Char.TryParse(answerTerm, out term))
-                                    {
-                                        Console.WriteLine("Please enter a proper letter.");
-                                        Console.Write("Enter 'y' or 'Y' for Yes, 'n' or N' for No: ");
-                                        answerTerm = Console.ReadLine();
-                                    }
-                                    term = char.ToUpper(term);
-                                    if (term == 'N')
-                                    {
-                                        letterCheck2 = false;
-                                        createTerm = false;
-                                    }
-                                    else if (term == 'Y')
-                                    {
-                                        letterCheck2 = false;
-                                        createTerm = true;
-                                    }
-                                }
-                                letterCheck2 = true;
                             }
-                            createTerm = true;
-                            Console.Write("Polynomial added: ");
-                            p1.Print();
-                            list.Insert(p1);
-                            p1 = new Polynomial();
+                            t1.Coeff = coeff;
+
+                            // Input exponent
+                            Console.Write("Enter exponent: ");
+                            answerExpo = Console.ReadLine();
+                            while (!Int32.TryParse(answerExpo, out expo))
+                            {
+                                Console.WriteLine("Please enter a proper number.");
+                                Console.Write("Enter fraction 1 denominator: ");
+                                answerExpo = Console.ReadLine();
+                            }
+                            t1.Expo = Convert.ToByte(expo);
+
+                            p1.AddTerm(t1);
+                            // Input into list here
+
                             letterCheck = false;
                             break;
 
                         case 'V':
                             Console.WriteLine("View list of polynomials");
 
-                            list.Print();
+                            // Print list here
+
                             letterCheck = false;
                             break;
 
                         case 'E':
                             Console.WriteLine("Evaluate a polynomial");
 
-                            // Input number for 'x'
-                            Console.Write("Enter number for 'x': ");
-                            answerEvaluate = Console.ReadLine();
-                            while (!Int32.TryParse(answerEvaluate, out evaluate))
+                            // Input index number
+                            Console.Write("Enter polynomial's index number: ");
+                            answerIndex = Console.ReadLine();
+                            while (!Int32.TryParse(answerIndex, out index))
                             {
                                 Console.WriteLine("Please enter a proper number.");
-                                Console.Write("Enter number for 'x': ");
-                                answerEvaluate = Console.ReadLine();
-                            }
-
-                            // Input index number
-                            while (numCheck == true)
-                            {
                                 Console.Write("Enter polynomial's index number: ");
                                 answerIndex = Console.ReadLine();
-                                while (!Int32.TryParse(answerIndex, out index))
-                                {
-                                    Console.WriteLine("Please enter a proper number.");
-                                    Console.Write("Enter polynomial's index number: ");
-                                    answerIndex = Console.ReadLine();
-                                }
-                                if (index >= 0 && index <= list.count)
-                                    numCheck = false;
-                                else
-                                {
-                                    Console.WriteLine("Please enter a proper number.");
-                                    answerIndex = "";
-                                }
                             }
-                            numCheck = true;
+                            // Retrieve polynomial here
+                            // Evaluate here
 
-                            p1 = list.Retrieve(index);
-                            Console.Write("Polynomial: ");
-                            p1.Print();
-                            Console.WriteLine("x: " + evaluate + ", Result: " + p1.Evaluate(evaluate));
-                            p1 = new Polynomial();
                             letterCheck = false;
                             break;
 
@@ -176,29 +126,16 @@ namespace Assignment_1_Jimy_Nelson
                             Console.WriteLine("Delete a polynomial");
 
                             // Input index number
-                            while (numCheck == true)
+                            Console.Write("Enter polynomial's index number: ");
+                            answerIndex = Console.ReadLine();
+                            while (!Int32.TryParse(answerIndex, out index))
                             {
+                                Console.WriteLine("Please enter a proper number.");
                                 Console.Write("Enter polynomial's index number: ");
                                 answerIndex = Console.ReadLine();
-                                while (!Int32.TryParse(answerIndex, out index))
-                                {
-                                    Console.WriteLine("Please enter a proper number.");
-                                    Console.Write("Enter polynomial's index number: ");
-                                    answerIndex = Console.ReadLine();
-                                }
-                                if (index >= 0 && index <= list.count)
-                                    numCheck = false;
-                                else
-                                {
-                                    Console.WriteLine("Please enter a proper number.");
-                                    answerIndex = "";
-                                }
                             }
-                            numCheck = true;
+                            // Delete here
 
-                            Console.Write("Polynomial deleted: ");
-                            list.Retrieve(index).Print();
-                            list.Delete(index);
                             letterCheck = false;
                             break;
 
@@ -206,53 +143,31 @@ namespace Assignment_1_Jimy_Nelson
                             Console.WriteLine("Add two polynomials");
 
                             // Input first index number
-                            while (numCheck == true)
+                            Console.Write("Enter first polynomial's index number: ");
+                            answerIndex = Console.ReadLine();
+                            while (!Int32.TryParse(answerIndex, out index))
                             {
+                                Console.WriteLine("Please enter a proper number.");
                                 Console.Write("Enter first polynomial's index number: ");
                                 answerIndex = Console.ReadLine();
-                                while (!Int32.TryParse(answerIndex, out index))
-                                {
-                                    Console.WriteLine("Please enter a proper number.");
-                                    Console.Write("Enter first polynomial's index number: ");
-                                    answerIndex = Console.ReadLine();
-                                }
-                                if (index >= 0 && index <= list.count)
-                                    numCheck = false;
-                                else
-                                {
-                                    Console.WriteLine("Please enter a proper number.");
-                                    answerIndex = "";
-                                }
                             }
-                            numCheck = true;
-                            p1 = list.Retrieve(index);
+                            // Retrieve first polynomial
 
                             // Input second index number
-                            while (numCheck == true)
+                            Console.Write("Enter second polynomial's index number: ");
+                            answerIndex = Console.ReadLine();
+                            while (!Int32.TryParse(answerIndex, out index))
                             {
+                                Console.WriteLine("Please enter a proper number.");
                                 Console.Write("Enter second polynomial's index number: ");
                                 answerIndex = Console.ReadLine();
-                                while (!Int32.TryParse(answerIndex, out index))
-                                {
-                                    Console.WriteLine("Please enter a proper number.");
-                                    Console.Write("Enter second polynomial's index number: ");
-                                    answerIndex = Console.ReadLine();
-                                }
-                                if (index >= 0 && index <= list.count)
-                                    numCheck = false;
-                                else
-                                {
-                                    Console.WriteLine("Please enter a proper number.");
-                                    answerIndex = "";
-                                }
                             }
-                            numCheck = true;
-                            p2 = list.Retrieve(index);
+                            // Retrieve second polynomial
 
-                            p3 = p1 + p2;
-                            list.Insert(p3);
-                            Console.Write("Result: ");
-                            p3.Print();
+                            // Perform addition
+
+                            // Add to list
+
                             letterCheck = false;
                             break;
 
@@ -260,53 +175,31 @@ namespace Assignment_1_Jimy_Nelson
                             Console.WriteLine("Multiply two polynomials");
 
                             // Input first index number
-                            while (numCheck == true)
+                            Console.Write("Enter first polynomial's index number: ");
+                            answerIndex = Console.ReadLine();
+                            while (!Int32.TryParse(answerIndex, out index))
                             {
+                                Console.WriteLine("Please enter a proper number.");
                                 Console.Write("Enter first polynomial's index number: ");
                                 answerIndex = Console.ReadLine();
-                                while (!Int32.TryParse(answerIndex, out index))
-                                {
-                                    Console.WriteLine("Please enter a proper number.");
-                                    Console.Write("Enter first polynomial's index number: ");
-                                    answerIndex = Console.ReadLine();
-                                }
-                                if (index >= 0 && index <= list.count)
-                                    numCheck = false;
-                                else
-                                {
-                                    Console.WriteLine("Please enter a proper number.");
-                                    answerIndex = "";
-                                }
                             }
-                            numCheck = true;
-                            p1 = list.Retrieve(index);
+                            // Retrieve first polynomial
 
                             // Input second index number
-                            while (numCheck == true)
+                            Console.Write("Enter second polynomial's index number: ");
+                            answerIndex = Console.ReadLine();
+                            while (!Int32.TryParse(answerIndex, out index))
                             {
+                                Console.WriteLine("Please enter a proper number.");
                                 Console.Write("Enter second polynomial's index number: ");
                                 answerIndex = Console.ReadLine();
-                                while (!Int32.TryParse(answerIndex, out index))
-                                {
-                                    Console.WriteLine("Please enter a proper number.");
-                                    Console.Write("Enter second polynomial's index number: ");
-                                    answerIndex = Console.ReadLine();
-                                }
-                                if (index >= 0 && index <= list.count)
-                                    numCheck = false;
-                                else
-                                {
-                                    Console.WriteLine("Please enter a proper number.");
-                                    answerIndex = "";
-                                }
                             }
-                            numCheck = true;
-                            p2 = list.Retrieve(index);
+                            // Retrieve second polynomial
 
-                            p3 = p1 * p2;
-                            list.Insert(p3);
-                            Console.Write("Result: ");
-                            p3.Print();
+                            // Perform multiplication
+
+                            // Add to list
+
                             letterCheck = false;
                             break;
 
@@ -322,6 +215,37 @@ namespace Assignment_1_Jimy_Nelson
                 }
                 letterCheck = true;
             } while (char.ToUpper(command) != 'Q');
+
+            /*
+            try
+            {
+                // For testing class while developing code pls dont delete until finished assignment
+                Polynomial p1 = new Polynomial();
+                Polynomial p2 = new Polynomial();
+                Polynomial p3 = new Polynomial();
+
+                p1.AddTerm(new Term(2, 2));
+                p1.AddTerm(new Term(2, 2));
+                p1.AddTerm(new Term(2, 3));
+
+                p2.AddTerm(new Term(1, 2));
+                p2.AddTerm(new Term(1, 4));
+                p2.AddTerm(new Term(5, 5));
+
+                p1.Print();
+                p2.Print();
+
+                Console.WriteLine("Mutiply test");
+                p3 = p1 * p2;
+                p3.Print();
+
+                Console.WriteLine(p1.Order(p2));
+            }
+            catch (ArgumentException e)
+            { Console.WriteLine(e.Message); }
+
+            Console.ReadKey();
+            */
         }
     }
 }

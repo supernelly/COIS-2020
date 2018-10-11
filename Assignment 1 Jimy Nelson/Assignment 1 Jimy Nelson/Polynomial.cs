@@ -239,11 +239,14 @@ namespace Assignment_1_Jimy_Nelson
     {
         private List<Polynomials> P;
         private int count;
+
+        public List<Polynomials> P1 { get => P; set => P = value; }
+
         // Creates an empty list of polynomials
         public Polynomials()
         {
            
-            List<Polynomials> polynomials = new List<Polynomials>(P);
+            List<Polynomials> polynomials = new List<Polynomials>(P1);
             polynomials.Clear();
 
         }
@@ -251,20 +254,19 @@ namespace Assignment_1_Jimy_Nelson
         //Retrieves the polynomial stored at position i-1 in the list
         public Polynomials Retrieve(int i)
         {
-            List<Polynomials> polynomials = new List<Polynomials>(P);
-            return polynomials[i - 1];
-            
+            List<Polynomials> polynomials = new List<Polynomials>(P1);
+            return polynomials[i - 1];            
           }
         // Inserts polynomial p into the list of polynomials ordered by degree
         public void Insert(Polynomials p)
         {
-            List<Polynomials> polynomials = new List<Polynomials>(P);
+            List<Polynomials> polynomials = new List<Polynomials>(P1);
             polynomials.Add(p); 
         }
         // Deletes the polynomial at index i-1
         public void Delete(int i)
         {
-            List<Polynomials> polynomials = new List<Polynomials>(P);
+            List<Polynomials> polynomials = new List<Polynomials>(P1);
 
             int q;
             if (i >= 0 && i <= count - 1)
@@ -273,7 +275,7 @@ namespace Assignment_1_Jimy_Nelson
 
                 for (q = i + 1; q <= count - 1; q++)
                 {
-                    P[q - 1] = P[q];
+                    P1[q - 1] = P1[q];
                 }
                 count--;
             }
@@ -283,9 +285,9 @@ namespace Assignment_1_Jimy_Nelson
         public void Print()
         { 
             {
-                foreach(Polynomial  in P)
+                foreach(Polynomial  in P1)
                 {
-                    Console.WriteLine(P);
+                    Console.WriteLine(P1);
 
             }
             }

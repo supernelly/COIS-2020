@@ -237,35 +237,28 @@ namespace Assignment_1_Jimy_Nelson
     
     public class Polynomials 
     {
-        private List<Polynomials> P;
-        private int count;
+        private List<Polynomial> P;
+        public int count;
         // Creates an empty list of polynomials
         public Polynomials()
         {
-           
-            List<Polynomials> polynomials = new List<Polynomials>(P);
-            polynomials.Clear();
-
+            P = new List<Polynomial>();
         }
 
         //Retrieves the polynomial stored at position i-1 in the list
-        public Polynomials Retrieve(int i)
+        public Polynomial Retrieve(int i)
         {
-            List<Polynomials> polynomials = new List<Polynomials>(P);
-            return polynomials[i - 1];
-            
+            return P[i - 1];
           }
         // Inserts polynomial p into the list of polynomials ordered by degree
-        public void Insert(Polynomials p)
+        public void Insert(Polynomial p)
         {
-            List<Polynomials> polynomials = new List<Polynomials>(P);
-            polynomials.Add(p); 
+            count++;
+            P.Add(p);
         }
         // Deletes the polynomial at index i-1
         public void Delete(int i)
         {
-            List<Polynomials> polynomials = new List<Polynomials>(P);
-
             int q;
             if (i >= 0 && i <= count - 1)
             {
@@ -277,18 +270,12 @@ namespace Assignment_1_Jimy_Nelson
                 }
                 count--;
             }
-            // else do nothing
         }
         // Prints out the list of polynomials (beginning with polynomial 1)
         public void Print()
-        { 
-            {
-                foreach(Polynomial  in P)
-                {
-                    Console.WriteLine(P);
-
-            }
-            }
+        {
+            foreach (Polynomial p in P)
+                p.Print();
         }
     }
     

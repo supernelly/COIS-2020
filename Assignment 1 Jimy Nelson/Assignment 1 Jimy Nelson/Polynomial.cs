@@ -237,6 +237,7 @@ namespace Assignment_1_Jimy_Nelson
     
     public class Polynomials 
     {
+<<<<<<< HEAD
         private List<Polynomials> P;
         private int count;
 
@@ -249,25 +250,45 @@ namespace Assignment_1_Jimy_Nelson
             List<Polynomials> polynomials = new List<Polynomials>(P1);
             polynomials.Clear();
 
+=======
+        private List<Polynomial> P;
+        public int count;
+        // Creates an empty list of polynomials
+        public Polynomials()
+        {
+            P = new List<Polynomial>();
+>>>>>>> 7a05e6638243ce4567f1ff55d45ff9249a668137
         }
 
         //Retrieves the polynomial stored at position i-1 in the list
-        public Polynomials Retrieve(int i)
+        public Polynomial Retrieve(int i)
         {
+<<<<<<< HEAD
             List<Polynomials> polynomials = new List<Polynomials>(P1);
             return polynomials[i - 1];            
+=======
+            return P[i - 1];
+>>>>>>> 7a05e6638243ce4567f1ff55d45ff9249a668137
           }
         // Inserts polynomial p into the list of polynomials ordered by degree
-        public void Insert(Polynomials p)
+        public void Insert(Polynomial p)
         {
+<<<<<<< HEAD
             List<Polynomials> polynomials = new List<Polynomials>(P1);
             polynomials.Add(p); 
+=======
+            count++;
+            P.Add(p);
+>>>>>>> 7a05e6638243ce4567f1ff55d45ff9249a668137
         }
         // Deletes the polynomial at index i-1
         public void Delete(int i)
         {
+<<<<<<< HEAD
             List<Polynomials> polynomials = new List<Polynomials>(P1);
 
+=======
+>>>>>>> 7a05e6638243ce4567f1ff55d45ff9249a668137
             int q;
             if (i >= 0 && i <= count - 1)
             {
@@ -279,10 +300,10 @@ namespace Assignment_1_Jimy_Nelson
                 }
                 count--;
             }
-            // else do nothing
         }
         // Prints out the list of polynomials (beginning with polynomial 1)
         public void Print()
+<<<<<<< HEAD
         { 
             {
                 foreach(Polynomial  in P1)
@@ -291,6 +312,11 @@ namespace Assignment_1_Jimy_Nelson
 
             }
             }
+=======
+        {
+            foreach (Polynomial p in P)
+                p.Print();
+>>>>>>> 7a05e6638243ce4567f1ff55d45ff9249a668137
         }
     }
     

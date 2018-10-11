@@ -5,13 +5,9 @@
  *
  *  Description here
  *  
- *  Usage:
+ *  Usage: 
  */
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Assignment_1_Jimy_Nelson
 {
@@ -20,10 +16,10 @@ namespace Assignment_1_Jimy_Nelson
         public static void Main()
         {
             string answerExpo = "", answerCoeff = "", answerCommand = "", answerIndex = "", answerEvaluate = "", answerTerm = "";
-            int coeff = 0, index = 0, evaluate = 0;
-            byte expo = 0;
-            char command = 'o', term = 'o';
             bool letterCheck = true, letterCheck2 = true, numCheck = true, createTerm = true;
+            int coeff = 0, index = 0, evaluate = 0;
+            char command = 'o', term = 'o';
+            byte expo = 0;
 
             Term t1 = new Term(0, 0);
             Polynomials list = new Polynomials();
@@ -154,7 +150,7 @@ namespace Assignment_1_Jimy_Nelson
                                     Console.Write("Enter polynomial's index number: ");
                                     answerIndex = Console.ReadLine();
                                 }
-                                if (index >= 0 && index <= list.count)
+                                if (index >= 1 && index <= list.count)
                                     numCheck = false;
                                 else
                                 {
@@ -192,7 +188,7 @@ namespace Assignment_1_Jimy_Nelson
                                     Console.Write("Enter polynomial's index number: ");
                                     answerIndex = Console.ReadLine();
                                 }
-                                if (index >= 0 && index <= list.count)
+                                if (index >= 1 && index <= list.count)
                                     numCheck = false;
                                 else
                                 {
@@ -222,7 +218,7 @@ namespace Assignment_1_Jimy_Nelson
                                     Console.Write("Enter first polynomial's index number: ");
                                     answerIndex = Console.ReadLine();
                                 }
-                                if (index >= 0 && index <= list.count)
+                                if (index >= 1 && index <= list.count)
                                     numCheck = false;
                                 else
                                 {
@@ -244,7 +240,7 @@ namespace Assignment_1_Jimy_Nelson
                                     Console.Write("Enter second polynomial's index number: ");
                                     answerIndex = Console.ReadLine();
                                 }
-                                if (index >= 0 && index <= list.count)
+                                if (index >= 1 && index <= list.count)
                                     numCheck = false;
                                 else
                                 {
@@ -276,7 +272,7 @@ namespace Assignment_1_Jimy_Nelson
                                     Console.Write("Enter first polynomial's index number: ");
                                     answerIndex = Console.ReadLine();
                                 }
-                                if (index >= 0 && index <= list.count)
+                                if (index >= 1 && index <= list.count)
                                     numCheck = false;
                                 else
                                 {
@@ -298,7 +294,7 @@ namespace Assignment_1_Jimy_Nelson
                                     Console.Write("Enter second polynomial's index number: ");
                                     answerIndex = Console.ReadLine();
                                 }
-                                if (index >= 0 && index <= list.count)
+                                if (index >= 1 && index <= list.count)
                                     numCheck = false;
                                 else
                                 {

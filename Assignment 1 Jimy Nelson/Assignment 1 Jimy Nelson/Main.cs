@@ -3,9 +3,7 @@
  *
  *  Written By: Nelson Su (0616242) and Jimy Nguygens (0618793) - October 2018
  *
- *  Description here
- *  
- *  Usage: 
+ *  This program allows you to create and manipulate polynomials.
  */
 using System;
 
